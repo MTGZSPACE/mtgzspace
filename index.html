@@ -11,7 +11,32 @@
       background: #0d001f;
       color: #fff;
       overflow-x: hidden;
+      position: relative;
+      padding: 20px; /* espace pour la bordure led */
     }
+    /* Bordure LED animée autour de la page */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 10px; bottom: 10px; left: 10px; right: 10px;
+      pointer-events: none;
+      border: 4px solid;
+      border-image-slice: 1;
+      border-width: 4px;
+      border-image-source: linear-gradient(270deg, #ff0055, #8a2be2, #ff0055);
+      animation: ledRotate 5s linear infinite;
+      border-radius: 15px;
+      z-index: 9999;
+    }
+    @keyframes ledRotate {
+      0% {
+        border-image-source: linear-gradient(270deg, #ff0055, #8a2be2, #ff0055);
+      }
+      100% {
+        border-image-source: linear-gradient(630deg, #ff0055, #8a2be2, #ff0055);
+      }
+    }
+
     header {
       background: linear-gradient(45deg, #6a00ff, #ff0055);
       padding: 1rem 2rem;
@@ -41,6 +66,11 @@
       max-width: 900px;
       margin: 3rem auto;
       padding: 1rem;
+      position: relative;
+      z-index: 20;
+      background: rgba(13, 0, 31, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,0,85,0.5);
     }
 
     h2 {
@@ -107,12 +137,83 @@
       text-align: center;
       padding: 2rem;
       color: #999;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* Colonnes LED latérales */
+    .led-column {
+      position: fixed;
+      top: 0;
+      width: 40px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 15;
+      pointer-events: none;
+    }
+    .led-column.left {
+      left: 0;
+    }
+    .led-column.right {
+      right: 0;
+    }
+
+    .led-dot {
+      width: 10px;
+      height: 10px;
+      background: #ff0055;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ff0055, 0 0 15px #8a2be2;
+      animation: upDown 3s ease-in-out infinite;
+      opacity: 0.7;
+    }
+    /* On va décaler les animations par delay */
+    .led-dot:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+    .led-dot:nth-child(3) {
+      animation-delay: 1s;
+    }
+    .led-dot:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+    .led-dot:nth-child(5) {
+      animation-delay: 2s;
+    }
+    .led-dot:nth-child(6) {
+      animation-delay: 2.5s;
+    }
+
+    @keyframes upDown {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-15px); opacity: 1; }
     }
   </style>
 </head>
 <body>
 
 <canvas id="bgCanvas"></canvas>
+
+<!-- Colonnes LED latérales -->
+<div class="led-column left">
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+</div>
+<div class="led-column right">
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+  <div class="led-dot"></div>
+</div>
 
 <header>
   <h1>MTGZSPACE</h1>
