@@ -3,73 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MTGZSPACE - Monteur Vidéo Pro</title>
+  <title>MTGZSPACE - Monteur Vidéo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0d001f;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #2e003e);
       color: #fff;
       overflow-x: hidden;
     }
+
     header {
-      background: linear-gradient(45deg, #6a00ff, #ff0055);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-    }
-    header h1 {
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    nav a {
-      margin-left: 1.5rem;
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
+      padding: 2rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
     }
 
-    main {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 1rem;
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #ff009d;
     }
 
     h2 {
-      color: #ff006a;
-      margin-bottom: 1rem;
+      margin-top: 2rem;
+      text-align: center;
+      color: #fff;
       font-size: 2rem;
-      border-left: 6px solid #ff006a;
-      padding-left: 0.5rem;
     }
 
-    section {
-      margin-bottom: 4rem;
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1.5rem;
+      width: 300px;
+      box-shadow: 0 0 10px #ff00e0;
+      transition: transform 0.3s;
     }
 
-    li {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
+    .card:hover {
+      transform: scale(1.05);
     }
 
-    a.button {
+    .card h3 {
+      margin: 0;
+      color: #ff69b4;
+    }
+
+    .card p {
+      margin: 0.5rem 0 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .btn {
       display: inline-block;
       margin-top: 2rem;
       padding: 0.8rem 1.5rem;
-      background: #ff0055;
+      background: #9a00b4;
       color: white;
       border-radius: 8px;
       text-decoration: none;
@@ -77,135 +83,69 @@
       transition: background 0.3s;
     }
 
-    a.button:hover {
-      background: #d40049;
+    .btn:hover {
+      background: #ff00c8;
     }
 
-    canvas {
+    .side-effect {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: -1;
+      top: 0;
+      bottom: 0;
+      width: 15px;
+      z-index: 0;
+      background: linear-gradient(180deg, rgba(255,0,150,0.6), rgba(138,43,226,0.6));
+      animation: wave 4s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #999;
+    .side-left {
+      left: 0;
+    }
+
+    .side-right {
+      right: 0;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>MTGZSPACE</h1>
+    <p>YouTubeur Gaming & Monteur Vidéo</p>
+    <a href="rejoindre.html" class="btn">🎬 Rejoindre l'équipe MTGZ</a>
+  </header>
 
-<canvas id="bgCanvas"></canvas>
+  <h2>💼 Mes Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Montage vidéo complet - 5 €</h3>
+      <p>▶️ YouTube, gaming, vlogs, tutos...</p>
+      <p>🎬 Coupage, transitions, effets, musique, sous-titres !</p>
+    </div>
 
-<header>
-  <h1>MTGZSPACE</h1>
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#tarifs">Tarifs</a>
-    <a href="#contact">Contact</a>
-    <a href="rejoindre.html">Rejoindre l'équipe</a>
-  </nav>
-</header>
+    <div class="card">
+      <h3>TikTok / Shorts / Reels - 2 €</h3>
+      <p>🎥 Format vertical, punchy & accrocheur</p>
+      <p>⚡ Optimisé pour capter l’attention</p>
+    </div>
 
-<main>
-  <section id="accueil">
-    <h2>Bienvenue !</h2>
-    <p>Je suis <strong>MTGZSPACE</strong>, YouTubeur gaming et monteur vidéo.  
-    Je réalise des montages stylés, dynamiques et adaptés à ton contenu !</p>
-  </section>
+    <div class="card">
+      <h3>Miniature personnalisée - 1 €</h3>
+      <p>🖼️ Design stylé pour booster tes clics</p>
+    </div>
+  </div>
 
-  <section id="tarifs">
-    <h2>Mes Tarifs</h2>
-    <ul>
-      <li>🎬 <strong>Montage vidéo complet : 5 €</strong><br>
-        ▶️ YouTube, gaming, vlog, tuto, etc.<br>
-        ▶️ Coupage, transitions, effets, musiques, sous-titres si besoin
-      </li>
-      <li>📱 <strong>TikTok / Shorts / Reels : 2 €</strong><br>
-        ▶️ Format vertical, punchy, accrocheur<br>
-        ▶️ Optimisé pour capter l’attention
-      </li>
-      <li>🖼️ <strong>Miniature personnalisée : 1 €</strong><br>
-        ▶️ Design impactant pour booster tes clics
-      </li>
-    </ul>
-  </section>
+  <footer>
+    <p>📧 Contact : edojuniorsantos2012eds@gmail.com | Discord : mtgzspace</p>
+  </footer>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email : <a href="mailto:edojuniorsantos2012eds@gmail.com">edojuniorsantos2012eds@gmail.com</a><br>
-       💬 Discord : <strong>mtgzspace</strong></p>
-
-    <a href="rejoindre.html" class="button">Rejoindre l'équipe</a>
-  </section>
-</main>
-
-<footer>
-  © 2025 MTGZSPACE | Tous droits réservés
-</footer>
-
-<script>
-  // Fond animé : particules rouge-violet
-  const canvas = document.getElementById('bgCanvas');
-  const ctx = canvas.getContext('2d');
-  let width, height;
-  let particles = [];
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.radius = Math.random() * 2 + 1;
-      this.dx = (Math.random() - 0.5) * 0.5;
-      this.dy = (Math.random() - 0.5) * 0.5;
-      this.color = Math.random() > 0.5 ? '#ff0055' : '#8a2be2';
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.fill();
-    }
-
-    update() {
-      this.x += this.dx;
-      this.y += this.dy;
-      if (this.x < 0 || this.x > width) this.dx *= -1;
-      if (this.y < 0 || this.y > height) this.dy *= -1;
-      this.draw();
-    }
-  }
-
-  function initParticles() {
-    particles = [];
-    for (let i = 0; i < 100; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    particles.forEach(p => p.update());
-    requestAnimationFrame(animate);
-  }
-
-  window.addEventListener('resize', () => {
-    resize();
-    initParticles();
-  });
-
-  resize();
-  initParticles();
-  animate();
-</script>
-
+  <div class="side-effect side-left"></div>
+  <div class="side-effect side-right"></div>
 </body>
 </html>
+
+      padding-left: 0;
