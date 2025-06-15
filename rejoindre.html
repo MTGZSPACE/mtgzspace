@@ -1,78 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Postuler - MTGZSPACE</title>
   <style>
     body {
-      background: linear-gradient(45deg, #6a00ff, #ff0055);
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
+      background: linear-gradient(135deg, #1a1a1a, #2e003e);
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
     }
 
     h1 {
-      margin-bottom: 1rem;
+      color: #ff009d;
     }
 
     form {
-      background: #1a001f;
+      background: rgba(255, 255, 255, 0.05);
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 0 25px rgba(255, 0, 85, 0.5);
-      width: 100%;
       max-width: 500px;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
+      box-shadow: 0 0 10px #ff00c8;
     }
 
     input, textarea {
+      width: 100%;
       margin-bottom: 1rem;
       padding: 0.8rem;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
     }
 
-    input[type="submit"] {
-      background: #ff0055;
+    button {
+      background: #9a00b4;
       color: white;
-      font-weight: bold;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
+      font-weight: bold;
     }
 
-    input[type="submit"]:hover {
-      background: #d40049;
+    button:hover {
+      background: #ff00c8;
     }
 
     a {
+      color: #ff69b4;
       margin-top: 2rem;
-      color: #fff;
-      text-decoration: underline;
+      display: inline-block;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-
-  <h1>Rejoindre l'équipe MTGZ</h1>
-  <p>Remplis ce formulaire pour postuler à l'équipe !</p>
-
+  <h1>🎯 Rejoins l’équipe MTGZ</h1>
   <form action="https://formsubmit.co/edojuniorsantos2012eds@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="Nouvelle Candidature MTGZ">
     <input type="text" name="Nom ou pseudo" placeholder="Ton nom ou pseudo" required>
-    <input type="email" name="Email" placeholder="Ton email" required>
-    <input type="text" name="Discord" placeholder="Ton pseudo Discord" required>
-    <textarea name="Motivation" rows="5" placeholder="Pourquoi veux-tu rejoindre l'équipe ?" required></textarea>
-    <input type="submit" value="Envoyer la candidature">
+    <input type="email" name="Email" placeholder="Ton adresse e-mail" required>
+    <textarea name="Pourquoi tu veux rejoindre ?" rows="5" placeholder="Dis-nous pourquoi tu veux rejoindre l’équipe MTGZ..." required></textarea>
+    <button type="submit">Envoyer ma candidature</button>
   </form>
-
-  <a href="index.html">← Retour à l'accueil</a>
-
+  <a href="index.html">⬅ Retour à l'accueil</a>
 </body>
 </html>
